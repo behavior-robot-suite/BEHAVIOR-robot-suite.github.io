@@ -27,6 +27,25 @@
             video.playbackRate = speed;
             video.play();
         }
+
+        function updatePullVideoSpeed() {
+            var all_pull_videos_ids = [
+                "pull-take-trash-outside",
+                "pull-put-items-onto-shelves-1",
+                "pull-put-items-onto-shelves-2",
+                "pull-clean-the-toilet",
+                "pull-clean-house-after-a-wild-party",
+                "pull-lay-clothes-out"
+            ];
+            var speed = document.getElementById("pull-videos-menu-speed").value;
+
+            for (var i = 0; i < all_pull_videos_ids.length; i++) {
+                var video = document.getElementById(all_pull_videos_ids[i]);
+                video.playbackRate = speed;
+                video.play();
+            }
+        }
+
     </script>
 
     <link rel="stylesheet" href="assets/css/main.css">
@@ -137,43 +156,44 @@
             <!--            </div>-->
 
             <div class="mySlides fade">
-                <video autoplay muted playsinline loop preload="auto" width="100%">
-                    <source src="assets/videos/pull/take_trash_outside_1x.mp4" type="video/mp4">
+                <video autoplay muted playsinline loop preload="auto" width="100%" id="pull-take-trash-outside">
+                    <source src="assets/videos/task_rollouts/take-trash-outside_1_1x.mp4" type="video/mp4">
                 </video>
-                <div class="text">Policy rollout: take trash outside (1×)</div>
+                <div class="text">Policy rollout: take trash outside</div>
             </div>
 
             <div class="mySlides fade">
-                <video autoplay muted playsinline loop preload="auto" width="100%">
-                    <source src="assets/videos/pull/put_items_onto_shelves_1_1x.mp4" type="video/mp4">
-                </video>
-                <div class="text">Policy rollout: put items onto shelves (1×)</div>
-            </div>
-
-            <div class="mySlides fade">
-                <video autoplay muted playsinline loop preload="auto" width="100%">
-                    <source src="assets/videos/pull/put_items_onto_shelves_2_1x.mp4" type="video/mp4">
+                <video autoplay muted playsinline loop preload="auto" width="100%" id="pull-put-items-onto-shelves-1">
+                    <source src="assets/videos/task_rollouts/put-items-onto-shelves_1_1x.mp4" type="video/mp4">
                 </video>
                 <div class="text">Policy rollout: put items onto shelves (1×)</div>
             </div>
 
             <div class="mySlides fade">
-                <video autoplay muted playsinline loop preload="auto" width="100%">
-                    <source src="assets/videos/pull/clean_the_toilet_1x.mp4" type="video/mp4">
+                <video autoplay muted playsinline loop preload="auto" width="100%" id="pull-put-items-onto-shelves-2">
+                    <source src="assets/videos/task_rollouts/put-items-onto-shelves_2_1x.mp4" type="video/mp4">
+                </video>
+                <div class="text">Policy rollout: put items onto shelves (1×)</div>
+            </div>
+
+            <div class="mySlides fade">
+                <video autoplay muted playsinline loop preload="auto" width="100%" id="pull-clean-the-toilet">
+                    <source src="assets/videos/task_rollouts/clean-the-toilet_1_1x.mp4" type="video/mp4">
                 </video>
                 <div class="text">Policy rollout: clean the toilet (1×)</div>
             </div>
 
             <div class="mySlides fade">
-                <video autoplay muted playsinline loop preload="auto" width="100%">
-                    <source src="assets/videos/pull/clean_house_after_a_wild_party_1x.mp4" type="video/mp4">
+                <video autoplay muted playsinline loop preload="auto" width="100%"
+                       id="pull-clean-house-after-a-wild-party">
+                    <source src="assets/videos/task_rollouts/clean-house-after-a-wild-party_1_1x.mp4" type="video/mp4">
                 </video>
                 <div class="text">Policy rollout: clean house after a wild party (1×)</div>
             </div>
 
             <div class="mySlides fade">
-                <video autoplay muted playsinline loop preload="auto" width="100%">
-                    <source src="assets/videos/pull/lay_clothes_out_1x.mp4" type="video/mp4">
+                <video autoplay muted playsinline loop preload="auto" width="100%" id="pull-lay-clothes-out">
+                    <source src="assets/videos/task_rollouts/lay-clothes-out_1_1x.mp4" type="video/mp4">
                 </video>
                 <div class="text">Policy rollout: lay clothes out (1×)</div>
             </div>
@@ -193,6 +213,14 @@
             <span class="dot" onclick="currentSlide(5)"></span>
             <span class="dot" onclick="currentSlide(6)"></span>
             <!--            <span class="dot" onclick="currentSlide(7)"></span>-->
+            <div class="select is-medium">
+                <select id="pull-videos-menu-speed" onchange="updatePullVideoSpeed()" style="font-family: monospace">
+                    <option value=1.0 selected="selected">Speed 1x</option>
+                    <option value=2.0>Speed 2x</option>
+                    <option value=4.0>Speed 4x</option>
+                </select>
+            </div>
+
         </div>
         <div id="abstract">
             <h1>Abstract</h1>
