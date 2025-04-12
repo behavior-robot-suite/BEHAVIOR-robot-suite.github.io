@@ -5,6 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BEHAVIOR Robot Suite | Streamlining Real-World Whole-Body Manipulation for Everyday Household
         Activities</title>
+
+    <script>
+        function updateRolloutVideoInstance(category) {
+            var instance = document.getElementById(category + "-menu-instance").value;
+            var speed = document.getElementById(category + "-menu-speed").value;
+
+            var video = document.getElementById(category + "-rollout-video");
+
+            video.src = "assets/videos/task_rollouts/" +
+                category + "_" + instance + "_1x.mp4";
+            video.playbackRate = speed;
+            video.play();
+        }
+
+        function updateRolloutVideoSpeed(category) {
+            var speed = document.getElementById(category + "-menu-speed").value;
+
+            var video = document.getElementById(category + "-rollout-video");
+
+            video.playbackRate = speed;
+            video.play();
+        }
+    </script>
+
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -419,7 +443,23 @@
     <h1>BRS Enables Various Household Activities (<abbr
             title="What types of household tasks are enabled by BRS?"><dfn>Q1</dfn></abbr>)</h1>
 
-    <h2>Task 1: Take Trash Outside</h2>
+    <h2>Task 1: Take Trash Outside
+        <div class="select is-medium">
+            <select id="take-trash-outside-menu-instance" onchange="updateRolloutVideoInstance('take-trash-outside')">
+                <option value="1" selected="selected">Policy Rollout 1</option>
+                <option value="2">Policy Rollout 2</option>
+                <option value="3">Policy Rollout 3</option>
+                <option value="4">Policy Rollout 4</option>
+                <option value="5">Policy Rollout 5</option>
+                <option value="6">Policy Rollout 6</option>
+            </select>
+            <select id="take-trash-outside-menu-speed" onchange="updateRolloutVideoSpeed('take-trash-outside')">
+                <option value=1.0 selected="selected">Speed 1x</option>
+                <option value=2.0>Speed 2x</option>
+                <option value=4.0>Speed 4x</option>
+            </select>
+        </div>
+    </h2>
 
     <p>
         The robot navigates to a trash bag in the living room, picks it up (<span style="font-weight: bold">ST-1</span>),
@@ -429,39 +469,38 @@
         is the most critical capability for this task.
     </p>
 
-    <div class="allegroupper">
-        <video muted controls loop preload="metadata">
-            <source src="assets/videos/pull/take_trash_outside_4x.mp4" type="video/mp4">
-        </video>
-        <video muted controls loop preload="metadata">
-            <source src="assets/videos/task_rollouts/take_trash_outside_2_4x.mp4" type="video/mp4">
-        </video>
-    </div>
-    <div class="allegroupper">
-        <video muted controls loop preload="metadata">
-            <source src="assets/videos/task_rollouts/take_trash_outside_3_4x.mp4" type="video/mp4">
-        </video>
-        <video muted controls loop preload="metadata">
-            <source src="assets/videos/task_rollouts/take_trash_outside_4_4x.mp4" type="video/mp4">
-        </video>
-    </div>
-    <div class="allegrolower">
+    <div class="allegrofail">
         <div class="video_container">
-            <video muted controls loop preload="metadata">
-                <source src="assets/videos/task_rollouts/take_trash_outside_5_4x.mp4" type="video/mp4">
+            <video loop autoplay muted playsinline preload="auto" id="take-trash-outside-rollout-video">
+                <source src="assets/videos/task_rollouts/take-trash-outside_1_1x.mp4" type="video/mp4">
             </video>
             <div class="caption">
-                <p><b>Autonomous policy rollouts for the task “take trash outside” (4×).</b></p>
+                <p><b>Autonomous policy rollouts for the task “take trash outside”.</b></p>
             </div>
-        </div>
-        <div class="video_container">
-            <video muted controls loop preload="metadata">
-                <source src="assets/videos/task_rollouts/take_trash_outside_6_4x.mp4" type="video/mp4">
-            </video>
         </div>
     </div>
 
-    <h2>Task 2: Put Items onto Shelves</h2>
+    <h2>Task 2: Put Items onto Shelves
+        <div class="select is-medium">
+            <select id="put-items-onto-shelves-menu-instance"
+                    onchange="updateRolloutVideoInstance('put-items-onto-shelves')">
+                <option value="1" selected="selected">Policy Rollout 1</option>
+                <option value="2">Policy Rollout 2</option>
+                <option value="3">Policy Rollout 3</option>
+                <option value="4">Policy Rollout 4</option>
+                <option value="5">Policy Rollout 5</option>
+                <option value="6">Policy Rollout 6</option>
+                <option value="7">Policy Rollout 7</option>
+                <option value="8">Policy Rollout 8</option>
+            </select>
+            <select id="put-items-onto-shelves-menu-speed" onchange="updateRolloutVideoSpeed('put-items-onto-shelves')">
+                <option value=1.0 selected="selected">Speed 1x</option>
+                <option value=2.0>Speed 2x</option>
+                <option value=4.0>Speed 4x</option>
+            </select>
+        </div>
+    </h2>
+
     <p>
         In a storage room, the robot lifts a box from the ground (<span style="font-weight: bold">ST-1</span>), moves to
         a four-level shelf, and places the box on the appropriate level based on available space (<span
@@ -469,47 +508,36 @@
             style="color: #EA9A9D; font-weight: bold">reachability</span> is the most critical capability for this task.
     </p>
 
-    <div class="allegroupper">
-        <video muted controls loop preload="metadata">
-            <source src="assets/videos/task_rollouts/put_items_onto_shelf_1_4x.mp4" type="video/mp4">
-        </video>
-        <video muted controls loop preload="metadata">
-            <source src="assets/videos/task_rollouts/put_items_onto_shelf_2_4x.mp4" type="video/mp4">
-        </video>
-    </div>
-    <div class="allegroupper">
-        <video muted controls loop preload="metadata">
-            <source src="assets/videos/task_rollouts/put_items_onto_shelf_3_4x.mp4" type="video/mp4">
-        </video>
-        <video muted controls loop preload="metadata">
-            <source src="assets/videos/pull/put_items_onto_shelves_2.mp4" type="video/mp4">
-        </video>
-    </div>
-    <div class="allegroupper">
-        <video muted controls loop preload="metadata">
-            <source src="assets/videos/task_rollouts/put_items_onto_shelf_5_4x.mp4" type="video/mp4">
-        </video>
-        <video muted controls loop preload="metadata">
-            <source src="assets/videos/task_rollouts/put_items_onto_shelf_6_4x.mp4" type="video/mp4">
-        </video>
-    </div>
-    <div class="allegrolower">
+    <div class="allegrofail">
         <div class="video_container">
-            <video muted controls loop preload="metadata">
-                <source src="assets/videos/task_rollouts/put_items_onto_shelf_8_4x.mp4" type="video/mp4">
+            <video loop autoplay muted playsinline preload="auto" id="put-items-onto-shelves-rollout-video">
+                <source src="assets/videos/task_rollouts/put-items-onto-shelves_1_1x.mp4" type="video/mp4">
             </video>
             <div class="caption">
-                <p><b>Autonomous policy rollouts for the task “clean house after a wild party” (4×).</b></p>
+                <p><b>Autonomous policy rollouts for the task “put items onto shelves”.</b></p>
             </div>
-        </div>
-        <div class="video_container">
-            <video muted controls loop preload="metadata">
-                <source src="assets/videos/task_rollouts/put_items_onto_shelf_7_4x.mp4" type="video/mp4">
-            </video>
         </div>
     </div>
 
-    <h2>Task 3: Lay Clothes Out</h2>
+    <h2>Task 3: Lay Clothes Out
+        <div class="select is-medium">
+            <select id="lay-clothes-out-menu-instance" onchange="updateRolloutVideoInstance('lay-clothes-out')">
+                <option value="1" selected="selected">Policy Rollout 1</option>
+                <option value="2">Policy Rollout 2</option>
+                <option value="3">Policy Rollout 3</option>
+                <option value="4">Policy Rollout 4</option>
+                <option value="5">Policy Rollout 5</option>
+                <option value="6">Policy Rollout 6</option>
+                <option value="7">Policy Rollout 7</option>
+                <option value="8">Policy Rollout 8</option>
+            </select>
+            <select id="lay-clothes-out-menu-speed" onchange="updateRolloutVideoSpeed('lay-clothes-out')">
+                <option value=1.0 selected="selected">Speed 1x</option>
+                <option value=2.0>Speed 2x</option>
+                <option value=4.0>Speed 4x</option>
+            </select>
+        </div>
+    </h2>
 
     <p>
         In a bedroom, the robot moves to a wardrobe, opens it (<span style="font-weight: bold">ST-1</span>), picks up a
@@ -520,55 +548,32 @@
         this task.
     </p>
 
-    <div class="allegroupper">
-        <video muted controls loop preload="metadata">
-            <source src="assets/videos/task_rollouts/lay_clothes_out_1_4x.mp4" type="video/mp4">
-        </video>
-        <video muted controls loop preload="metadata">
-            <source src="assets/videos/task_rollouts/lay_clothes_out_2_4x.mp4" type="video/mp4">
-        </video>
-    </div>
-    <div class="allegroupper">
-        <video muted controls loop preload="metadata">
-            <source src="assets/videos/task_rollouts/lay_clothes_out_3_4x.mp4" type="video/mp4">
-        </video>
-        <video muted controls loop preload="metadata">
-            <source src="assets/videos/task_rollouts/lay_clothes_out_4_4x.mp4" type="video/mp4">
-        </video>
-    </div>
-    <div class="allegroupper">
-        <video muted controls loop preload="metadata">
-            <source src="assets/videos/task_rollouts/lay_clothes_out_5_4x.mp4" type="video/mp4">
-        </video>
-        <video muted controls loop preload="metadata">
-            <source src="assets/videos/task_rollouts/lay_clothes_out_6_4x.mp4" type="video/mp4">
-        </video>
-    </div>
-    <div class="allegroupper">
-        <video muted controls loop preload="metadata">
-            <source src="assets/videos/task_rollouts/lay_clothes_out_7_4x.mp4" type="video/mp4">
-        </video>
-        <video muted controls loop preload="metadata">
-            <source src="assets/videos/task_rollouts/lay_clothes_out_8_4x.mp4" type="video/mp4">
-        </video>
-    </div>
-    <div class="allegrolower">
+    <div class="allegrofail">
         <div class="video_container">
-            <video muted controls loop preload="metadata">
-                <source src="assets/videos/task_rollouts/lay_clothes_out_9_4x.mp4" type="video/mp4">
+            <video loop autoplay muted playsinline preload="auto" id="lay-clothes-out-rollout-video">
+                <source src="assets/videos/task_rollouts/lay-clothes-out_1_1x.mp4" type="video/mp4">
             </video>
             <div class="caption">
-                <p><b>Autonomous policy rollouts for the task “lay clothes out” (4×).</b></p>
+                <p><b>Autonomous policy rollouts for the task “lay clothes out”.</b></p>
             </div>
-        </div>
-        <div class="video_container">
-            <video muted controls loop preload="metadata">
-                <source src="assets/videos/task_rollouts/lay_clothes_out_10_4x.mp4" type="video/mp4">
-            </video>
         </div>
     </div>
 
-    <h2>Task 4: Clean the Toilet</h2>
+    <h2>Task 4: Clean the Toilet
+        <div class="select is-medium">
+            <select id="clean-the-toilet-menu-instance" onchange="updateRolloutVideoInstance('clean-the-toilet')">
+                <option value="1" selected="selected">Policy Rollout 1</option>
+                <option value="2">Policy Rollout 2</option>
+                <option value="3">Policy Rollout 3</option>
+                <option value="4">Policy Rollout 4</option>
+            </select>
+            <select id="clean-the-toilet-menu-speed" onchange="updateRolloutVideoSpeed('clean-the-toilet')">
+                <option value=1.0 selected="selected">Speed 1x</option>
+                <option value=2.0>Speed 2x</option>
+                <option value=4.0>Speed 4x</option>
+            </select>
+        </div>
+    </h2>
 
     <p>
         In a restroom, the robot picks up a sponge placed on a closed toilet (<span
@@ -578,36 +583,36 @@
         robot then moves to press the flush button (<span style="font-weight: bold">ST-6</span>). Extensive end-effector
         <span style="color: #EA9A9D; font-weight: bold">reachability</span> is the most critical capability for this
         task.
-
     </p>
 
-    <div class="allegroupper">
-        <video muted controls loop preload="metadata">
-            <source src="assets/videos/task_rollouts/clean_the_toilet_1_4x.mp4" type="video/mp4">
-        </video>
-        <video muted controls loop preload="metadata">
-            <source src="assets/videos/task_rollouts/clean_the_toilet_2_4x.mp4" type="video/mp4">
-        </video>
-    </div>
-
-    <div class="allegrolower">
+    <div class="allegrofail">
         <div class="video_container">
-            <video muted controls loop preload="metadata">
-                <source src="assets/videos/task_rollouts/clean_the_toilet_3_4x.mp4" type="video/mp4">
+            <video loop autoplay muted playsinline preload="auto" id="clean-the-toilet-rollout-video">
+                <source src="assets/videos/task_rollouts/clean-the-toilet_1_1x.mp4" type="video/mp4">
             </video>
             <div class="caption">
-                <p><b>Autonomous policy rollouts for the task “clean house after a wild party” (4×).</b></p>
+                <p><b>Autonomous policy rollouts for the task “clean the toilet”.</b></p>
             </div>
-        </div>
-        <div class="video_container">
-            <video muted controls loop preload="metadata">
-                <source src="assets/videos/task_rollouts/clean_the_toilet_4_4x.mp4" type="video/mp4">
-            </video>
         </div>
     </div>
 
-
-    <h2>Task 5: Clean House After a Wild Party</h2>
+    <h2>Task 5: Clean House After a Wild Party
+        <div class="select is-medium">
+            <select id="clean-house-after-a-wild-party-menu-instance"
+                    onchange="updateRolloutVideoInstance('clean-house-after-a-wild-party')">
+                <option value="1" selected="selected">Policy Rollout 1</option>
+                <option value="2">Policy Rollout 2</option>
+                <option value="3">Policy Rollout 3</option>
+                <option value="4">Policy Rollout 4</option>
+            </select>
+            <select id="clean-house-after-a-wild-party-menu-speed"
+                    onchange="updateRolloutVideoSpeed('clean-house-after-a-wild-party')">
+                <option value=1.0 selected="selected">Speed 1x</option>
+                <option value=2.0>Speed 2x</option>
+                <option value=4.0>Speed 4x</option>
+            </select>
+        </div>
+    </h2>
 
     <p>
         Starting in the living room, the robot navigates to a dishwasher in the kitchen (<span
@@ -619,27 +624,14 @@
         is the most critical capability for this task.
     </p>
 
-    <div class="allegroupper">
-        <video muted controls loop preload="metadata">
-            <source src="assets/videos/task_rollouts/clean_house_after_a_wild_party_1.mp4" type="video/mp4">
-        </video>
-        <video muted controls loop preload="metadata">
-            <source src="assets/videos/task_rollouts/clean_house_after_a_wild_party_2.mp4" type="video/mp4">
-        </video>
-    </div>
-    <div class="allegrolower">
+    <div class="allegrofail">
         <div class="video_container">
-            <video muted controls loop preload="metadata">
-                <source src="assets/videos/task_rollouts/clean_house_after_a_wild_party_5.mp4" type="video/mp4">
+            <video loop autoplay muted playsinline preload="auto" id="clean-house-after-a-wild-party-rollout-video">
+                <source src="assets/videos/task_rollouts/clean-house-after-a-wild-party_1_1x.mp4" type="video/mp4">
             </video>
             <div class="caption">
-                <p><b>Autonomous policy rollouts for the task “clean house after a wild party” (4×).</b></p>
+                <p><b>Autonomous policy rollouts for the task “clean house after a wild party”.</b></p>
             </div>
-        </div>
-        <div class="video_container">
-            <video muted controls loop preload="metadata">
-                <source src="assets/videos/task_rollouts/clean_house_after_a_wild_party_4.mp4" type="video/mp4">
-            </video>
         </div>
     </div>
 

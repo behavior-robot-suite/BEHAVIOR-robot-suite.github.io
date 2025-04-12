@@ -458,6 +458,11 @@ hr.rounded {
     -webkit-font-smoothing: antialiased;
 }
 
+#overview select {
+    font-family: monospace;
+    font-weight: normal;
+}
+
 #overview summary {
     padding-top: 1vw;
     color: #2E2D29;
