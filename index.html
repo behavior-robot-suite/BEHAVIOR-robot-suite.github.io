@@ -46,6 +46,55 @@
             }
         }
 
+        function updateBaselineFailureVideoSpeed() {
+            var all_videos_ids = [
+                "baseline-failure-case-1-video",
+                "baseline-failure-case-2-video",
+                "baseline-failure-case-3-video",
+                "baseline-failure-case-4-video",
+                "baseline-failure-case-5-video",
+                "baseline-failure-case-6-video",
+            ];
+            var speed = document.getElementById("baseline-failure-videos-menu-speed").value;
+
+            for (var i = 0; i < all_videos_ids.length; i++) {
+                var video = document.getElementById(all_videos_ids[i]);
+                video.playbackRate = speed;
+                video.play();
+            }
+        }
+
+        function updateFailureRecoveryVideoSpeed() {
+            var all_videos_ids = [
+                "failure-recovery-1-video",
+                "failure-recovery-2-video",
+            ];
+            var speed = document.getElementById("failure-recovery-videos-menu-speed").value;
+
+            for (var i = 0; i < all_videos_ids.length; i++) {
+                var video = document.getElementById(all_videos_ids[i]);
+                video.playbackRate = speed;
+                video.play();
+            }
+        }
+
+        function updateOurFailureVideoSpeed() {
+            var all_videos_ids = [
+                "ours-failure-case-1-video",
+                "ours-failure-case-2-video",
+                "ours-failure-case-3-video",
+                "ours-failure-case-4-video",
+                "ours-failure-case-5-video",
+            ];
+            var speed = document.getElementById("ours-failure-videos-menu-speed").value;
+
+            for (var i = 0; i < all_videos_ids.length; i++) {
+                var video = document.getElementById(all_videos_ids[i]);
+                video.playbackRate = speed;
+                video.play();
+            }
+        }
+
     </script>
 
     <link rel="stylesheet" href="assets/css/main.css">
@@ -824,33 +873,42 @@
     </p>
 
     <div class="allegroupper">
-        <video autoplay muted playsinline loop preload="auto">
-            <source src="assets/videos/failure_cases/baseline_failure_case_1_4x.mp4" type="video/mp4">
+        <video autoplay muted playsinline loop preload="auto" id="baseline-failure-case-1-video">
+            <source src="assets/videos/failure_cases/baseline-failure-case_1_1x.mp4" type="video/mp4">
         </video>
-        <video autoplay muted playsinline loop preload="auto">
-            <source src="assets/videos/failure_cases/baseline_failure_case_2_8x.mp4" type="video/mp4">
+        <video autoplay muted playsinline loop preload="auto" id="baseline-failure-case-2-video">
+            <source src="assets/videos/failure_cases/baseline-failure-case_2_1x.mp4" type="video/mp4">
         </video>
     </div>
     <div class="allegroupper">
-        <video autoplay muted playsinline loop preload="auto">
-            <source src="assets/videos/failure_cases/baseline_failure_case_3_4x.mp4" type="video/mp4">
+        <video autoplay muted playsinline loop preload="auto" id="baseline-failure-case-3-video">
+            <source src="assets/videos/failure_cases/baseline-failure-case_3_1x.mp4" type="video/mp4">
         </video>
-        <video autoplay muted playsinline loop preload="auto">
-            <source src="assets/videos/failure_cases/baseline_failure_case_4_4x.mp4" type="video/mp4">
+        <video autoplay muted playsinline loop preload="auto" id="baseline-failure-case-4-video">
+            <source src="assets/videos/failure_cases/baseline-failure-case_4_1x.mp4" type="video/mp4">
         </video>
     </div>
     <div class="allegrolower">
         <div class="video_container">
-            <video autoplay muted playsinline loop preload="auto">
-                <source src="assets/videos/failure_cases/baseline_failure_case_5_4x.mp4" type="video/mp4">
+            <video autoplay muted playsinline loop preload="auto" id="baseline-failure-case-5-video">
+                <source src="assets/videos/failure_cases/baseline-failure-case_5_1x.mp4" type="video/mp4">
             </video>
             <div class="caption">
-                <p><b>Failure cases of baseline methods.</b></p>
+                <p><b>Failure cases of baseline methods.</b>
+                <div class="select is-medium">
+                    <select id="baseline-failure-videos-menu-speed" onchange="updateBaselineFailureVideoSpeed()"
+                            style="font-family: monospace">
+                        <option value=1.0 selected="selected">Speed 1x</option>
+                        <option value=2.0>Speed 2x</option>
+                        <option value=4.0>Speed 4x</option>
+                    </select>
+                </div>
+                </p>
             </div>
         </div>
         <div class="video_container">
-            <video autoplay muted playsinline loop preload="auto">
-                <source src="assets/videos/failure_cases/baseline_failure_case_6_4x.mp4" type="video/mp4">
+            <video autoplay muted playsinline loop preload="auto" id="baseline-failure-case-6-video">
+                <source src="assets/videos/failure_cases/baseline-failure-case_6_1x.mp4" type="video/mp4">
             </video>
         </div>
     </div>
@@ -935,16 +993,25 @@
 
     <div class="allegrolower">
         <div class="video_container">
-            <video autoplay muted playsinline loop preload="auto">
-                <source src="assets/videos/failure_recovery_1.mp4" type="video/mp4">
+            <video autoplay muted playsinline loop preload="auto" id="failure-recovery-1-video">
+                <source src="assets/videos/failure-recovery_1_1x.mp4" type="video/mp4">
             </video>
             <div class="caption">
-                <p><b>Emergent behaviors of failure recovery.</b></p>
+                <p><b>Emergent behaviors of failure recovery.</b>
+                <div class="select is-medium">
+                    <select id="failure-recovery-videos-menu-speed" onchange="updateFailureRecoveryVideoSpeed()"
+                            style="font-family: monospace">
+                        <option value=1.0 selected="selected">Speed 1x</option>
+                        <option value=2.0>Speed 2x</option>
+                        <option value=4.0>Speed 4x</option>
+                    </select>
+                </div>
+                </p>
             </div>
         </div>
         <div class="video_container">
-            <video autoplay muted playsinline loop preload="auto">
-                <source src="assets/videos/failure_recovery_2.mp4" type="video/mp4">
+            <video autoplay muted playsinline loop preload="auto" id="failure-recovery-2-video">
+                <source src="assets/videos/failure-recovery_2_1x.mp4" type="video/mp4">
             </video>
         </div>
     </div>
@@ -958,31 +1025,40 @@
         trash bag from the floor; 4) failure to lift the box on the floor; and 5) failure to close the wardrobe door.
     </p>
     <div class="allegroupper">
-        <video autoplay muted playsinline loop preload="auto">
-            <source src="assets/videos/failure_cases/ours_failure_case_1.mp4" type="video/mp4">
+        <video autoplay muted playsinline loop preload="auto" id="ours-failure-case-1-video">
+            <source src="assets/videos/failure_cases/ours-failure-case_1_1x.mp4" type="video/mp4">
         </video>
-        <video autoplay muted playsinline loop preload="auto">
-            <source src="assets/videos/failure_cases/ours_failure_case_2.mp4" type="video/mp4">
+        <video autoplay muted playsinline loop preload="auto" id="ours-failure-case-2-video">
+            <source src="assets/videos/failure_cases/ours-failure-case_2_1x.mp4" type="video/mp4">
         </video>
     </div>
 
     <div class="allegrolower">
         <div class="video_container_triple">
-            <video autoplay muted playsinline loop preload="auto">
-                <source src="assets/videos/failure_cases/ours_failure_case_3.mp4" type="video/mp4">
+            <video autoplay muted playsinline loop preload="auto" id="ours-failure-case-3-video">
+                <source src="assets/videos/failure_cases/ours-failure-case_3_1x.mp4" type="video/mp4">
             </video>
             <div class="caption">
-                <p><b>Several failure cases of learned WB-VIMA policies.</b></p>
+                <p><b>Several failure cases of learned WB-VIMA policies.</b>
+                <div class="select is-medium">
+                    <select id="ours-failure-videos-menu-speed" onchange="updateOurFailureVideoSpeed()"
+                            style="font-family: monospace">
+                        <option value=1.0 selected="selected">Speed 1x</option>
+                        <option value=2.0>Speed 2x</option>
+                        <option value=4.0>Speed 4x</option>
+                    </select>
+                </div>
+                </p>
             </div>
         </div>
         <div class="video_container_triple">
-            <video autoplay muted playsinline loop preload="auto">
-                <source src="assets/videos/failure_cases/ours_failure_case_4.mp4" type="video/mp4">
+            <video autoplay muted playsinline loop preload="auto" id="ours-failure-case-4-video">
+                <source src="assets/videos/failure_cases/ours-failure-case_4_1x.mp4" type="video/mp4">
             </video>
         </div>
         <div class="video_container_triple">
-            <video autoplay muted playsinline loop preload="auto">
-                <source src="assets/videos/failure_cases/ours_failure_case_5.mp4" type="video/mp4">
+            <video autoplay muted playsinline loop preload="auto" id="ours-failure-case-5-video">
+                <source src="assets/videos/failure_cases/ours-failure-case_5_1x.mp4" type="video/mp4">
             </video>
         </div>
     </div>
