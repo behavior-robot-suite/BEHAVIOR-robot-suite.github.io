@@ -205,28 +205,32 @@
             <!--            </div>-->
 
             <div class="mySlides fade">
-                <video autoplay muted playsinline loop preload="auto" width="100%" id="pull-take-trash-outside">
+                <video autoplay muted playsinline loop preload="auto" width="100%" id="pull-take-trash-outside"
+                       class="play-2x">
                     <source src="assets/videos/task_rollouts/take-trash-outside_1_1x.mp4" type="video/mp4">
                 </video>
                 <div class="text">Policy rollout: take trash outside</div>
             </div>
 
             <div class="mySlides fade">
-                <video autoplay muted playsinline loop preload="auto" width="100%" id="pull-put-items-onto-shelves-1">
+                <video autoplay muted playsinline loop preload="auto" width="100%" id="pull-put-items-onto-shelves-1"
+                       class="play-2x">
                     <source src="assets/videos/task_rollouts/put-items-onto-shelves_1_1x.mp4" type="video/mp4">
                 </video>
                 <div class="text">Policy rollout: put items onto shelves</div>
             </div>
 
             <div class="mySlides fade">
-                <video autoplay muted playsinline loop preload="auto" width="100%" id="pull-put-items-onto-shelves-2">
+                <video autoplay muted playsinline loop preload="auto" width="100%" id="pull-put-items-onto-shelves-2"
+                       class="play-2x">
                     <source src="assets/videos/task_rollouts/put-items-onto-shelves_2_1x.mp4" type="video/mp4">
                 </video>
                 <div class="text">Policy rollout: put items onto shelves</div>
             </div>
 
             <div class="mySlides fade">
-                <video autoplay muted playsinline loop preload="auto" width="100%" id="pull-clean-the-toilet">
+                <video autoplay muted playsinline loop preload="auto" width="100%" id="pull-clean-the-toilet"
+                       class="play-2x">
                     <source src="assets/videos/task_rollouts/clean-the-toilet_1_1x.mp4" type="video/mp4">
                 </video>
                 <div class="text">Policy rollout: clean the toilet</div>
@@ -234,14 +238,15 @@
 
             <div class="mySlides fade">
                 <video autoplay muted playsinline loop preload="auto" width="100%"
-                       id="pull-clean-house-after-a-wild-party">
+                       id="pull-clean-house-after-a-wild-party" class="play-2x">
                     <source src="assets/videos/task_rollouts/clean-house-after-a-wild-party_1_1x.mp4" type="video/mp4">
                 </video>
                 <div class="text">Policy rollout: clean house after a wild party</div>
             </div>
 
             <div class="mySlides fade">
-                <video autoplay muted playsinline loop preload="auto" width="100%" id="pull-lay-clothes-out">
+                <video autoplay muted playsinline loop preload="auto" width="100%" id="pull-lay-clothes-out"
+                       class="play-2x">
                     <source src="assets/videos/task_rollouts/lay-clothes-out_1_1x.mp4" type="video/mp4">
                 </video>
                 <div class="text">Policy rollout: lay clothes out</div>
@@ -264,8 +269,8 @@
             <!--            <span class="dot" onclick="currentSlide(7)"></span>-->
             <div class="select is-medium">
                 <select id="pull-videos-menu-speed" onchange="updatePullVideoSpeed()" style="font-family: monospace">
-                    <option value=1.0 selected="selected">Speed 1x</option>
-                    <option value=2.0>Speed 2x</option>
+                    <option value=1.0>Speed 1x</option>
+                    <option value=2.0 selected="selected">Speed 2x</option>
                     <option value=4.0>Speed 4x</option>
                 </select>
             </div>
@@ -531,8 +536,8 @@
                 <option value="6">Policy Rollout 6</option>
             </select>
             <select id="take-trash-outside-menu-speed" onchange="updateRolloutVideoSpeed('take-trash-outside')">
-                <option value=1.0 selected="selected">Speed 1x</option>
-                <option value=2.0>Speed 2x</option>
+                <option value=1.0>Speed 1x</option>
+                <option value=2.0 selected="selected">Speed 2x</option>
                 <option value=4.0>Speed 4x</option>
             </select>
         </div>
@@ -548,7 +553,7 @@
 
     <div class="allegrofail">
         <div class="video_container">
-            <video loop autoplay muted playsinline preload="auto" id="take-trash-outside-rollout-video">
+            <video loop autoplay muted playsinline preload="auto" id="take-trash-outside-rollout-video" class="play-2x">
                 <source src="assets/videos/task_rollouts/take-trash-outside_1_1x.mp4" type="video/mp4">
             </video>
             <div class="caption">
@@ -571,8 +576,8 @@
                 <option value="8">Policy Rollout 8</option>
             </select>
             <select id="put-items-onto-shelves-menu-speed" onchange="updateRolloutVideoSpeed('put-items-onto-shelves')">
-                <option value=1.0 selected="selected">Speed 1x</option>
-                <option value=2.0>Speed 2x</option>
+                <option value=1.0>Speed 1x</option>
+                <option value=2.0 selected="selected">Speed 2x</option>
                 <option value=4.0>Speed 4x</option>
             </select>
         </div>
@@ -587,7 +592,8 @@
 
     <div class="allegrofail">
         <div class="video_container">
-            <video loop autoplay muted playsinline preload="auto" id="put-items-onto-shelves-rollout-video">
+            <video loop autoplay muted playsinline preload="auto" id="put-items-onto-shelves-rollout-video"
+                   class="play-2x">
                 <source src="assets/videos/task_rollouts/put-items-onto-shelves_1_1x.mp4" type="video/mp4">
             </video>
             <div class="caption">
@@ -609,8 +615,8 @@
                 <option value="8">Policy Rollout 8</option>
             </select>
             <select id="lay-clothes-out-menu-speed" onchange="updateRolloutVideoSpeed('lay-clothes-out')">
-                <option value=1.0 selected="selected">Speed 1x</option>
-                <option value=2.0>Speed 2x</option>
+                <option value=1.0>Speed 1x</option>
+                <option value=2.0 selected="selected">Speed 2x</option>
                 <option value=4.0>Speed 4x</option>
             </select>
         </div>
@@ -627,7 +633,7 @@
 
     <div class="allegrofail">
         <div class="video_container">
-            <video loop autoplay muted playsinline preload="auto" id="lay-clothes-out-rollout-video">
+            <video loop autoplay muted playsinline preload="auto" id="lay-clothes-out-rollout-video" class="play-2x">
                 <source src="assets/videos/task_rollouts/lay-clothes-out_1_1x.mp4" type="video/mp4">
             </video>
             <div class="caption">
@@ -645,8 +651,8 @@
                 <option value="4">Policy Rollout 4</option>
             </select>
             <select id="clean-the-toilet-menu-speed" onchange="updateRolloutVideoSpeed('clean-the-toilet')">
-                <option value=1.0 selected="selected">Speed 1x</option>
-                <option value=2.0>Speed 2x</option>
+                <option value=1.0>Speed 1x</option>
+                <option value=2.0 selected="selected">Speed 2x</option>
                 <option value=4.0>Speed 4x</option>
             </select>
         </div>
@@ -664,7 +670,7 @@
 
     <div class="allegrofail">
         <div class="video_container">
-            <video loop autoplay muted playsinline preload="auto" id="clean-the-toilet-rollout-video">
+            <video loop autoplay muted playsinline preload="auto" id="clean-the-toilet-rollout-video" class="play-2x">
                 <source src="assets/videos/task_rollouts/clean-the-toilet_1_1x.mp4" type="video/mp4">
             </video>
             <div class="caption">
@@ -684,8 +690,8 @@
             </select>
             <select id="clean-house-after-a-wild-party-menu-speed"
                     onchange="updateRolloutVideoSpeed('clean-house-after-a-wild-party')">
-                <option value=1.0 selected="selected">Speed 1x</option>
-                <option value=2.0>Speed 2x</option>
+                <option value=1.0>Speed 1x</option>
+                <option value=2.0 selected="selected">Speed 2x</option>
                 <option value=4.0>Speed 4x</option>
             </select>
         </div>
@@ -703,7 +709,8 @@
 
     <div class="allegrofail">
         <div class="video_container">
-            <video loop autoplay muted playsinline preload="auto" id="clean-house-after-a-wild-party-rollout-video">
+            <video loop autoplay muted playsinline preload="auto" id="clean-house-after-a-wild-party-rollout-video"
+                   class="play-2x">
                 <source src="assets/videos/task_rollouts/clean-house-after-a-wild-party_1_1x.mp4" type="video/mp4">
             </video>
             <div class="caption">
@@ -873,24 +880,24 @@
     </p>
 
     <div class="allegroupper">
-        <video autoplay muted playsinline loop preload="auto" id="baseline-failure-case-1-video">
+        <video autoplay muted playsinline loop preload="auto" id="baseline-failure-case-1-video" class="play-2x">
             <source src="assets/videos/failure_cases/baseline-failure-case_1_1x.mp4" type="video/mp4">
         </video>
-        <video autoplay muted playsinline loop preload="auto" id="baseline-failure-case-2-video">
+        <video autoplay muted playsinline loop preload="auto" id="baseline-failure-case-2-video" class="play-2x">
             <source src="assets/videos/failure_cases/baseline-failure-case_2_1x.mp4" type="video/mp4">
         </video>
     </div>
     <div class="allegroupper">
-        <video autoplay muted playsinline loop preload="auto" id="baseline-failure-case-3-video">
+        <video autoplay muted playsinline loop preload="auto" id="baseline-failure-case-3-video" class="play-2x">
             <source src="assets/videos/failure_cases/baseline-failure-case_3_1x.mp4" type="video/mp4">
         </video>
-        <video autoplay muted playsinline loop preload="auto" id="baseline-failure-case-4-video">
+        <video autoplay muted playsinline loop preload="auto" id="baseline-failure-case-4-video" class="play-2x">
             <source src="assets/videos/failure_cases/baseline-failure-case_4_1x.mp4" type="video/mp4">
         </video>
     </div>
     <div class="allegrolower">
         <div class="video_container">
-            <video autoplay muted playsinline loop preload="auto" id="baseline-failure-case-5-video">
+            <video autoplay muted playsinline loop preload="auto" id="baseline-failure-case-5-video" class="play-2x">
                 <source src="assets/videos/failure_cases/baseline-failure-case_5_1x.mp4" type="video/mp4">
             </video>
             <div class="caption">
@@ -898,8 +905,8 @@
                 <div class="select is-medium">
                     <select id="baseline-failure-videos-menu-speed" onchange="updateBaselineFailureVideoSpeed()"
                             style="font-family: monospace">
-                        <option value=1.0 selected="selected">Speed 1x</option>
-                        <option value=2.0>Speed 2x</option>
+                        <option value=1.0>Speed 1x</option>
+                        <option value=2.0 selected="selected">Speed 2x</option>
                         <option value=4.0>Speed 4x</option>
                     </select>
                 </div>
@@ -907,7 +914,7 @@
             </div>
         </div>
         <div class="video_container">
-            <video autoplay muted playsinline loop preload="auto" id="baseline-failure-case-6-video">
+            <video autoplay muted playsinline loop preload="auto" id="baseline-failure-case-6-video" class="play-2x">
                 <source src="assets/videos/failure_cases/baseline-failure-case_6_1x.mp4" type="video/mp4">
             </video>
         </div>
@@ -993,7 +1000,7 @@
 
     <div class="allegrolower">
         <div class="video_container">
-            <video autoplay muted playsinline loop preload="auto" id="failure-recovery-1-video">
+            <video autoplay muted playsinline loop preload="auto" id="failure-recovery-1-video" class="play-2x">
                 <source src="assets/videos/failure-recovery_1_1x.mp4" type="video/mp4">
             </video>
             <div class="caption">
@@ -1001,8 +1008,8 @@
                 <div class="select is-medium">
                     <select id="failure-recovery-videos-menu-speed" onchange="updateFailureRecoveryVideoSpeed()"
                             style="font-family: monospace">
-                        <option value=1.0 selected="selected">Speed 1x</option>
-                        <option value=2.0>Speed 2x</option>
+                        <option value=1.0>Speed 1x</option>
+                        <option value=2.0 selected="selected">Speed 2x</option>
                         <option value=4.0>Speed 4x</option>
                     </select>
                 </div>
@@ -1010,7 +1017,7 @@
             </div>
         </div>
         <div class="video_container">
-            <video autoplay muted playsinline loop preload="auto" id="failure-recovery-2-video">
+            <video autoplay muted playsinline loop preload="auto" id="failure-recovery-2-video" class="play-2x">
                 <source src="assets/videos/failure-recovery_2_1x.mp4" type="video/mp4">
             </video>
         </div>
@@ -1025,17 +1032,17 @@
         trash bag from the floor; 4) failure to lift the box on the floor; and 5) failure to close the wardrobe door.
     </p>
     <div class="allegroupper">
-        <video autoplay muted playsinline loop preload="auto" id="ours-failure-case-1-video">
+        <video autoplay muted playsinline loop preload="auto" id="ours-failure-case-1-video" class="play-2x">
             <source src="assets/videos/failure_cases/ours-failure-case_1_1x.mp4" type="video/mp4">
         </video>
-        <video autoplay muted playsinline loop preload="auto" id="ours-failure-case-2-video">
+        <video autoplay muted playsinline loop preload="auto" id="ours-failure-case-2-video" class="play-2x">
             <source src="assets/videos/failure_cases/ours-failure-case_2_1x.mp4" type="video/mp4">
         </video>
     </div>
 
     <div class="allegrolower">
         <div class="video_container_triple">
-            <video autoplay muted playsinline loop preload="auto" id="ours-failure-case-3-video">
+            <video autoplay muted playsinline loop preload="auto" id="ours-failure-case-3-video" class="play-2x">
                 <source src="assets/videos/failure_cases/ours-failure-case_3_1x.mp4" type="video/mp4">
             </video>
             <div class="caption">
@@ -1043,8 +1050,8 @@
                 <div class="select is-medium">
                     <select id="ours-failure-videos-menu-speed" onchange="updateOurFailureVideoSpeed()"
                             style="font-family: monospace">
-                        <option value=1.0 selected="selected">Speed 1x</option>
-                        <option value=2.0>Speed 2x</option>
+                        <option value=1.0>Speed 1x</option>
+                        <option value=2.0 selected="selected">Speed 2x</option>
                         <option value=4.0>Speed 4x</option>
                     </select>
                 </div>
@@ -1052,12 +1059,12 @@
             </div>
         </div>
         <div class="video_container_triple">
-            <video autoplay muted playsinline loop preload="auto" id="ours-failure-case-4-video">
+            <video autoplay muted playsinline loop preload="auto" id="ours-failure-case-4-video" class="play-2x">
                 <source src="assets/videos/failure_cases/ours-failure-case_4_1x.mp4" type="video/mp4">
             </video>
         </div>
         <div class="video_container_triple">
-            <video autoplay muted playsinline loop preload="auto" id="ours-failure-case-5-video">
+            <video autoplay muted playsinline loop preload="auto" id="ours-failure-case-5-video" class="play-2x">
                 <source src="assets/videos/failure_cases/ours-failure-case_5_1x.mp4" type="video/mp4">
             </video>
         </div>
@@ -1122,4 +1129,14 @@
 
 <script src="assets/js/full_screen_video.js"></script>
 <script src="assets/js/carousel.js"></script>
+<script>
+    function setPlaybackRate(video) {
+        video.playbackRate = 2.0;
+    }
+
+    document.querySelectorAll('video.play-2x').forEach(video => {
+        video.addEventListener('loadedmetadata', () => setPlaybackRate(video));
+        video.addEventListener('play', () => setPlaybackRate(video));
+    });
+</script>
 </html>
