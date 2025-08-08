@@ -95,6 +95,14 @@
             }
         }
 
+        function updateSimVideo() {
+            var fname = document.getElementById("sim-ablation-menu").value;
+            var video = document.getElementById("sim-ablation-video");
+            video.src = "assets/videos/sim/" + fname;
+
+            video.play();
+        }
+
     </script>
 
     <link rel="stylesheet" href="assets/css/main.css">
@@ -175,7 +183,8 @@
             <p>
                 <b>Conference on Robot Learning (CoRL) 2025</b>
             </p>
-        </div>        <div class="button-container">
+        </div>
+        <div class="button-container">
             <a href="https://arxiv.org/abs/2503.05652" target="_blank" class="button"><i class="ai ai-arxiv"></i>&emsp14;arXiv</a>
             <a href="assets/pdf/brs_paper.pdf" target="_blank" class="button"><i class="fa-light fa-file"></i>&emsp14;PDF</a>
             <a href="https://x.com/YunfanJiang/status/1899113026663682432" target="_blank" class="button"><i
@@ -284,11 +293,12 @@
                 reachability. Achieving these capabilities requires careful hardware design, but the resulting system
                 complexity further complicates visuomotor policy learning. To address these challenges, we introduce the
                 BEHAVIOR Robot Suite (BRS), a comprehensive framework for whole-body manipulation in diverse household
-                tasks. Built on a bimanual, wheeled robot with a 4-DoF torso, BRS integrates a cost-effective whole-body
+                tasks.
+                Built on a bimanual, wheeled robot with a 4-DoF torso, BRS integrates a cost-effective whole-body
                 teleoperation interface for data collection and a novel algorithm for learning whole-body visuomotor
-                policies. We evaluate BRS on five challenging household tasks that not only emphasize the three core
-                capabilities but also introduce additional complexities, such as long-range navigation, interaction with
-                articulated and deformable objects, and manipulation in confined spaces. We believe that BRS’s
+                policies. We evaluate BRS on five challenging household tasks that not only emphasize the three
+                core capabilities but also introduce additional complexities, such as long-range navigation, interaction
+                with articulated and deformable objects, and manipulation in confined spaces. We believe that BRS's
                 integrated robotic embodiment, data collection interface, and learning framework mark a significant step
                 toward enabling real-world whole-body manipulation for everyday household tasks.
             </p>
@@ -300,24 +310,29 @@
     <h1>Core Capabilities for Daily Household Activities</h1>
     <div class="block-quote">
         <p>
-            What key capabilities must a robot possess to effectively perform daily household tasks?
+            What key capabilities must a robot develop to achieve daily household tasks?
         </p>
     </div>
 
     <p>
-        To explore this question, we analyze activities from <a href="https://behavior.stanford.edu/behavior-1k"
-                                                                target="_blank" style="text-decoration-line: underline">BEHAVIOR-1K</a>.
-        Through the analysis,
-        we identify three essential whole-body control capabilities for successfully performing these tasks: <span
+        To investigate this question, we analyze activities from <a href="https://behavior.stanford.edu/behavior-1k"
+                                                                    target="_blank"
+                                                                    style="text-decoration-line: underline">BEHAVIOR-1K</a>,
+        a human-centered robotics benchmark
+        encompassing 1,000 everyday household tasks, selected and defined by the general public, and
+        instantiated in ecological and virtual environments.
+        Through this analysis, we identify three essential whole-body control capabilities for successfully performing
+        these tasks: <span
             style="color: #92C4E9; font-weight: bold">bimanual</span>
         coordination, stable and accurate <span style="color: #F0C987; font-weight: bold">navigation</span>, and
         extensive end-effector <span style="color: #EA9A9D; font-weight: bold">reachability</span>.
         Tasks such as lifting large, heavy objects require <span
-            style="color: #92C4E9; font-weight: bold">bimanual</span> manipulation, while retrieving tools throughout a
-        house depends on stable and precise <span style="color: #F0C987; font-weight: bold">navigation</span>. Complex
-        tasks, such as opening a door while carrying groceries, demand the coordination of both capabilities. In
-        addition, everyday objects are distributed across diverse locations and heights, requiring robots to adapt their
-        <span style="color: #EA9A9D; font-weight: bold">reach</span> accordingly.
+            style="color: #92C4E9; font-weight: bold">bimanual</span> manipulation, whereas retrieving objects
+        throughout a house depends on stable and precise <span
+            style="color: #F0C987; font-weight: bold">navigation</span>. Opening a door while carrying groceries demands
+        the coordination of both capabilities. In addition, everyday objects are distributed across diverse locations
+        and heights, requiring robots to adapt their <span style="color: #EA9A9D; font-weight: bold">reach</span>
+        accordingly.
     </p>
 
     <div class="allegrofail">
@@ -327,7 +342,7 @@
                 <p>
                     <b>Ecological distributions of task-relevant objects involved in daily household activities.</b> <b>Left:</b>
                     The horizontal distance distribution follows a long-tail distribution. <b>Right:</b> The vertical
-                    distance distribution exhibits multiple distinct modes, located at 1.43 m, 0.94 m, 0.49 m, and 0.09
+                    distance distribution exhibits multiple distinct modes, located at 0.09 m, 0.49 m, 0.94 m, and 1.43
                     m, representing heights at which household objects are typically found. Notably, the multi-modal
                     distribution of vertical distances highlights the necessity of extensive end-effector reachability,
                     enabling a robot to interact with objects across a wide range of spatial configurations.
@@ -337,14 +352,13 @@
     </div>
 
     <p>
-        Carefully designed robotic hardware that incorporates dual arms, a mobile base, and a flexible torso is
-        essential to
-        enable whole-body manipulation. However, such sophisticated designs introduce significant challenges for policy
-        learning methods, particularly in scaling data collection and accurately modeling coordinated whole-body actions
-        in
-        complex real-world environments. To address these challenges, we introduce the <span
+        Carefully designed robotic hardware incorporating dual arms, a mobile base, and a flexible torso is essential to
+        enable whole-body manipulation. However, such designs introduce significant challenges for policy learning
+        methods, particularly in scaling data collection and accurately modeling coordinated whole-body actions. To
+        address these challenges, we introduce the <span
             style="color: #8C1515; font-weight: bold">BEHAVIOR Robot Suite</span> (BRS), a comprehensive framework for
-        learning whole-body manipulation to tackle diverse real-world household tasks. BRS addresses both hardware and
+        learning
+        whole-body manipulation to tackle diverse real-world household tasks. BRS addresses both hardware and
         learning challenges through two key innovations: <span
             style="font-weight: bold">JoyLo</span> and <span style="font-weight: bold">WB-VIMA</span>.
     </p>
@@ -354,8 +368,8 @@
             <img src="assets/img/system_overview.png">
             <div class="caption">
                 <p>
-                    <b>BRS hardware system overview.</b> <b>Left:</b> The <a href="https://galaxea.ai/" target="_blank">Galaxea
-                    R1 robot</a> used in BRS, a wheeled dual-arm manipulator with a flexible torso. <b>Right:</b> JoyLo,
+                    <b>BRS hardware system overview.</b> <b>Left:</b> The R1 robot used in BRS, a wheeled dual-arm
+                    manipulator with a flexible torso. <b>Right:</b> JoyLo,
                     a low-cost, whole-body teleoperation interface designed for general applicability.
                 </p>
             </div>
@@ -380,8 +394,9 @@
     </div>
 
     <p>
-        To enable seamless control of mobile manipulators with a high number of DoFs and facilitate data collection for
-        downstream policy learning, we introduce JoyLo—a general framework for building a cost-effective whole-body
+        To enable seamless teleoperation of mobile manipulators with a high number of DoFs and facilitate data
+        collection for
+        policy learning, we introduce JoyLo—a general framework for building a cost-effective whole-body
         teleoperation interface. We implement JoyLo on the R1 robot with the following design objectives:
     </p>
     <details>
@@ -441,6 +456,16 @@
                 target="_blank" style="text-decoration-line: underline">here</a> and assembly instructions <a
                 href="https://behavior-robot-suite.github.io/docs/sections/joylo/step_by_step_assembly_guidance.html"
                 target="_blank" style="text-decoration-line: underline">here</a>!</p>
+        <div class="allegrofail">
+            <div class="video_container">
+                <img src="assets/img/joylo_bom.png">
+                <div class="caption">
+                    <p>
+                        <b>JoyLo bill of materials.</b>
+                    </p>
+                </div>
+            </div>
+        </div>
     </details>
     <details>
         <summary>A real-time, user-friendly controller for seamless operation.</summary>
@@ -462,7 +487,7 @@
             </video>
             <div class="caption">
                 <p>
-                    <b>WB-VIMA model architecture.</b> WB-VIMA autoregressively denoises whole-body actions within the
+                    <b>WB-VIMA model architecture.</b> WB-VIMA autoregressively decodes whole-body actions within the
                     embodiment space and dynamically aggregates multi-modal observations using self-attention. By
                     leveraging the hierarchical interdependencies within the robot’s embodiment and the rich information
                     provided by multi-modal sensory inputs, WB-VIMA enables effective whole-body policy learning.
@@ -491,77 +516,35 @@
         </summary>
 
         <p>
-            <i>Q1</i>: What types of household tasks are enabled by BRS?
+            <i>Q1</i>: What household tasks are enabled by BRS, and how does WB-VIMA compare to baselines?
             <br>
-            <i>Q2</i>: How does JoyLo compare to other interfaces in terms of data collection efficiency, suitability
-            for policy learning, and user experience?
+            <i>Q2</i>: How different components contribute to WB-VIMA's effectiveness?
             <br>
-            <i>Q3</i>: Does WB-VIMA outperform baseline methods? If so, why do baseline methods fail?
+            <i>Q3</i>: How does JoyLo compare to other interfaces in efficiency and policy learning suitability?
             <br>
-            <i>Q4</i>: What components contribute to WB-VIMA’s effectiveness?
-            <br>
-            <i>Q5</i>: What additional insights can be drawn about the system’s overall capabilities?
+            <i>Q4</i>: What other insights can be drawn about the system's capabilities?
         </p>
 
 
     </details>
 
-    <p>
-        Inspired by the everyday activities defined in <a href="https://behavior.stanford.edu/behavior-1k"
-                                                          target="_blank" style="text-decoration-line: underline">BEHAVIOR-1K</a>,
-        we select five representative household tasks to demonstrate BRS’s capabilities. These tasks require the three
-        critical whole-body control capabilities: <span
-            style="color: #92C4E9; font-weight: bold">bimanual</span> coordination, stable and accurate <span
-            style="color: #F0C987; font-weight: bold">navigation</span>, and extensive end-effector <span
-            style="color: #EA9A9D; font-weight: bold">reachability</span>. All tasks are conducted in <span
-            style="font-weight: bold">real-world</span>, <span style="font-weight: bold">unmodified</span> environments
-        with objects that humans interact with daily. These tasks are <span
-            style="font-weight: bold">long-horizon</span>, ranging from 60s to 210s for a human operator to complete
-        using JoyLo. Due to the multi-stage nature of these activities, each task is segmented into multiple sub-tasks (<span
-            style="font-weight: bold">“ST”</span>).
-    </p>
-
     <h1>BRS Enables Various Household Activities (<abbr
-            title="What types of household tasks are enabled by BRS?"><dfn>Q1</dfn></abbr>)</h1>
-
-    <h2>Task 1: Take Trash Outside
-        <div class="select is-medium">
-            <select id="take-trash-outside-menu-instance" onchange="updateRolloutVideoInstance('take-trash-outside')">
-                <option value="1" selected="selected">Policy Rollout 1</option>
-                <option value="2">Policy Rollout 2</option>
-                <option value="3">Policy Rollout 3</option>
-                <option value="4">Policy Rollout 4</option>
-                <option value="5">Policy Rollout 5</option>
-                <option value="6">Policy Rollout 6</option>
-            </select>
-            <select id="take-trash-outside-menu-speed" onchange="updateRolloutVideoSpeed('take-trash-outside')">
-                <option value=1.0>Speed 1x</option>
-                <option value=2.0 selected="selected">Speed 2x</option>
-                <option value=4.0>Speed 4x</option>
-            </select>
-        </div>
-    </h2>
+            title="What household tasks are enabled by BRS, and how does WB-VIMA compare to baselines?"><dfn>Q1</dfn></abbr>)
+    </h1>
 
     <p>
-        The robot navigates to a trash bag in the living room, picks it up (<span style="font-weight: bold">ST-1</span>),
-        carries it to a closed door (<span style="font-weight: bold">ST-2</span>), opens the door (<span
-            style="font-weight: bold">ST-3</span>), moves outside, and deposits the trash bag into a trash bin (<span
-            style="font-weight: bold">ST-4</span>). Stable and accurate <span style="color: #F0C987; font-weight: bold">navigation</span>
-        is the most critical capability for this task.
+        We evaluate BRS on five real-world household tasks, inspired by the everyday activities defined in <a
+            href="https://behavior.stanford.edu/behavior-1k"
+            target="_blank"
+            style="text-decoration-line: underline">BEHAVIOR-1K</a>.
+        We collect <span style="font-weight: bold">100</span>, <span style="font-weight: bold">103</span>, <span
+            style="font-weight: bold">98</span>, <span style="font-weight: bold">138</span>, and <span
+            style="font-weight: bold">122</span> trajectories using
+        JoyLo for these long-horizon tasks, each ranging from <span style="font-weight: bold">60 s</span> to <span
+            style="font-weight: bold">210 s</span>. Videos below show autonomous WB-VIMA policy rollouts for each task.
     </p>
 
-    <div class="allegrofail">
-        <div class="video_container">
-            <video loop autoplay muted playsinline preload="auto" id="take-trash-outside-rollout-video" class="play-2x">
-                <source src="assets/videos/task_rollouts/take-trash-outside_1_1x.mp4" type="video/mp4">
-            </video>
-            <div class="caption">
-                <p><b>Autonomous policy rollouts for the task “take trash outside”.</b></p>
-            </div>
-        </div>
-    </div>
-
-    <h2>Task 2: Put Items onto Shelves
+    <h2>Task 1: Put Items onto Shelves
         <div class="select is-medium">
             <select id="put-items-onto-shelves-menu-instance"
                     onchange="updateRolloutVideoInstance('put-items-onto-shelves')">
@@ -596,7 +579,44 @@
                 <source src="assets/videos/task_rollouts/put-items-onto-shelves_1_1x.mp4" type="video/mp4">
             </video>
             <div class="caption">
-                <p><b>Autonomous policy rollouts for the task “put items onto shelves”.</b></p>
+                <p><b>Autonomous policy rollouts for the task “put items onto shelves.”</b></p>
+            </div>
+        </div>
+    </div>
+
+    <h2>Task 2: Clean the Toilet
+        <div class="select is-medium">
+            <select id="clean-the-toilet-menu-instance" onchange="updateRolloutVideoInstance('clean-the-toilet')">
+                <option value="1" selected="selected">Policy Rollout 1</option>
+                <option value="2">Policy Rollout 2</option>
+                <option value="3">Policy Rollout 3</option>
+                <option value="4">Policy Rollout 4</option>
+            </select>
+            <select id="clean-the-toilet-menu-speed" onchange="updateRolloutVideoSpeed('clean-the-toilet')">
+                <option value=1.0>Speed 1x</option>
+                <option value=2.0 selected="selected">Speed 2x</option>
+                <option value=4.0>Speed 4x</option>
+            </select>
+        </div>
+    </h2>
+
+    <p>
+        In a restroom, the robot picks up a sponge placed on a closed toilet (<span
+            style="font-weight: bold">ST-1</span>), opens the toilet cover (<span style="font-weight: bold">ST-2</span>),
+        cleans the seat (<span style="font-weight: bold">ST-3</span>), closes the cover (<span
+            style="font-weight: bold">ST-4</span>), and wipes it (<span style="font-weight: bold">ST-6</span>). The
+        robot then moves to press the flush button (<span style="font-weight: bold">ST-6</span>). Extensive end-effector
+        <span style="color: #EA9A9D; font-weight: bold">reachability</span> is the most critical capability for this
+        task.
+    </p>
+
+    <div class="allegrofail">
+        <div class="video_container">
+            <video loop autoplay muted playsinline preload="auto" id="clean-the-toilet-rollout-video" class="play-2x">
+                <source src="assets/videos/task_rollouts/clean-the-toilet_1_1x.mp4" type="video/mp4">
+            </video>
+            <div class="caption">
+                <p><b>Autonomous policy rollouts for the task “clean the toilet.”</b></p>
             </div>
         </div>
     </div>
@@ -636,49 +656,12 @@
                 <source src="assets/videos/task_rollouts/lay-clothes-out_1_1x.mp4" type="video/mp4">
             </video>
             <div class="caption">
-                <p><b>Autonomous policy rollouts for the task “lay clothes out”.</b></p>
+                <p><b>Autonomous policy rollouts for the task “lay clothes out.”</b></p>
             </div>
         </div>
     </div>
 
-    <h2>Task 4: Clean the Toilet
-        <div class="select is-medium">
-            <select id="clean-the-toilet-menu-instance" onchange="updateRolloutVideoInstance('clean-the-toilet')">
-                <option value="1" selected="selected">Policy Rollout 1</option>
-                <option value="2">Policy Rollout 2</option>
-                <option value="3">Policy Rollout 3</option>
-                <option value="4">Policy Rollout 4</option>
-            </select>
-            <select id="clean-the-toilet-menu-speed" onchange="updateRolloutVideoSpeed('clean-the-toilet')">
-                <option value=1.0>Speed 1x</option>
-                <option value=2.0 selected="selected">Speed 2x</option>
-                <option value=4.0>Speed 4x</option>
-            </select>
-        </div>
-    </h2>
-
-    <p>
-        In a restroom, the robot picks up a sponge placed on a closed toilet (<span
-            style="font-weight: bold">ST-1</span>), opens the toilet cover (<span style="font-weight: bold">ST-2</span>),
-        cleans the seat (<span style="font-weight: bold">ST-3</span>), closes the cover (<span
-            style="font-weight: bold">ST-4</span>), and wipes it (<span style="font-weight: bold">ST-6</span>). The
-        robot then moves to press the flush button (<span style="font-weight: bold">ST-6</span>). Extensive end-effector
-        <span style="color: #EA9A9D; font-weight: bold">reachability</span> is the most critical capability for this
-        task.
-    </p>
-
-    <div class="allegrofail">
-        <div class="video_container">
-            <video loop autoplay muted playsinline preload="auto" id="clean-the-toilet-rollout-video" class="play-2x">
-                <source src="assets/videos/task_rollouts/clean-the-toilet_1_1x.mp4" type="video/mp4">
-            </video>
-            <div class="caption">
-                <p><b>Autonomous policy rollouts for the task “clean the toilet”.</b></p>
-            </div>
-        </div>
-    </div>
-
-    <h2>Task 5: Clean House After a Wild Party
+    <h2>Task 4: Clean House After a Wild Party
         <div class="select is-medium">
             <select id="clean-house-after-a-wild-party-menu-instance"
                     onchange="updateRolloutVideoInstance('clean-house-after-a-wild-party')">
@@ -713,169 +696,88 @@
                 <source src="assets/videos/task_rollouts/clean-house-after-a-wild-party_1_1x.mp4" type="video/mp4">
             </video>
             <div class="caption">
-                <p><b>Autonomous policy rollouts for the task “clean house after a wild party”.</b></p>
+                <p><b>Autonomous policy rollouts for the task “clean house after a wild party.”</b></p>
             </div>
         </div>
     </div>
 
-    <h1>JoyLo Is an Efficient, User-Friendly Interface That Provides High-Quality Data for Policy Learning (<abbr
-            title="How does JoyLo compare to other interfaces in terms of data collection efficiency, suitability for policy learning, and user experience?"><dfn>Q2</dfn></abbr>)
-    </h1>
+
+    <h2>Task 5: Take Trash Outside
+        <div class="select is-medium">
+            <select id="take-trash-outside-menu-instance" onchange="updateRolloutVideoInstance('take-trash-outside')">
+                <option value="1" selected="selected">Policy Rollout 1</option>
+                <option value="2">Policy Rollout 2</option>
+                <option value="3">Policy Rollout 3</option>
+                <option value="4">Policy Rollout 4</option>
+                <option value="5">Policy Rollout 5</option>
+                <option value="6">Policy Rollout 6</option>
+            </select>
+            <select id="take-trash-outside-menu-speed" onchange="updateRolloutVideoSpeed('take-trash-outside')">
+                <option value=1.0>Speed 1x</option>
+                <option value=2.0 selected="selected">Speed 2x</option>
+                <option value=4.0>Speed 4x</option>
+            </select>
+        </div>
+    </h2>
 
     <p>
-        We conducted an extensive user study with 10 participants to evaluate JoyLo’s effectiveness and the suitability
-        of its collected data for policy learning. We compare JoyLo against two popular inverse kinematics (IK)-based
-        interfaces: <span style="font-weight: bold">VR controllers</span> and <span style="font-weight: bold">Apple Vision Pro</span>.
-        The study was conducted in the OmniGibson simulator using the “clean house after a wild party” task to prevent
-        potential damage to the robot or environment.
-    </p>
-
-    <div class="allegrolower">
-        <div class="video_container_triple">
-            <video autoplay muted playsinline loop preload="auto">
-                <source src="assets/videos/user_study_joylo.mov" type="video/mp4">
-            </video>
-            <div class="caption">
-                <p><b>User study.</b> From left to right: JoyLo, VR controllers, and Apple Vision Pro.</p>
-            </div>
-        </div>
-        <div class="video_container_triple">
-            <video autoplay muted playsinline loop preload="auto">
-                <source src="assets/videos/user_study_vr.mov" type="video/mp4">
-            </video>
-        </div>
-        <div class="video_container_triple">
-            <video autoplay muted playsinline loop preload="auto">
-                <source src="assets/videos/user_study_avp.mov" type="video/mp4">
-            </video>
-        </div>
-    </div>
-
-    <div class="allegrolower">
-        <div class="video_container">
-            <video autoplay muted playsinline loop preload="auto">
-                <source src="assets/videos/user_study_traj_example.mp4" type="video/mp4">
-            </video>
-            <div class="caption">
-                <p><b>An example user study trajectory.</b></p>
-            </div>
-        </div>
-    </div>
-
-    <p>
-        We measure <em>success rate</em> (↑, higher is better) and <em>completion time</em> (↓, lower is better) to
-        assess efficiency, and report metrics <em>replay success rate</em> (↑) and <em>singularity ratio</em> (↓) to
-        assess data quality for policy learning. Here, “success rate” refers to the proportion of successful
-        teleoperation trials, while “replay success rate” measures the success of open-loop execution of collected robot
-        trajectories. This is particularly challenging for long-horizon tasks in stochastic environments. Higher replay
-        success indicates verified data, allowing imitation learning policies to model collected trajectories without
-        accounting for embodiment or kinematic mismatches. We report results for both the entire task (<span
-            style="font-weight: bold">“ET”</span>) and individual subtasks (<span style="font-weight: bold">“ST”</span>).
+        The robot navigates to a trash bag in the living room, picks it up (<span style="font-weight: bold">ST-1</span>),
+        carries it to a closed door (<span style="font-weight: bold">ST-2</span>), opens the door (<span
+            style="font-weight: bold">ST-3</span>), moves outside, and deposits the trash bag into a trash bin (<span
+            style="font-weight: bold">ST-4</span>). Stable and accurate <span style="color: #F0C987; font-weight: bold">navigation</span>
+        is the most critical capability for this task.
     </p>
 
     <div class="allegrofail">
         <div class="video_container">
-            <img src="assets/img/user_study_results.png">
+            <video loop autoplay muted playsinline preload="auto" id="take-trash-outside-rollout-video" class="play-2x">
+                <source src="assets/videos/task_rollouts/take-trash-outside_1_1x.mp4" type="video/mp4">
+            </video>
+            <div class="caption">
+                <p><b>Autonomous policy rollouts for the task “take trash outside.”</b></p>
+            </div>
+        </div>
+    </div>
+
+    <p>
+        For baseline comparison, we include <span style="font-weight: bold">DP3</span>, <span style="font-weight: bold">RGB-DP</span>,
+        and <span style="font-weight: bold">ACT</span>. We additionally report human teleoperation success and policy
+        safety violations, defined as robot collisions or motor power losses due to excessive force. Each task is
+        segmented into multiple sub-tasks (<span style="font-weight: bold">“ST”</span>). During evaluation, if a
+        sub-task fails, we reset to the start of the <i>next</i> sub-task and <i>continue</i> evaluation. We also report
+        the end-to-end success rates for entire tasks (<span style="font-weight: bold">“ET”</span>). Each policy is
+        evaluated 15 times with randomized <span style="font-weight: bold">robot starting position</span>, <span
+            style="font-weight: bold">target object placement</span>, <span style="font-weight: bold">target object instance</span>,
+        and <span style="font-weight: bold">distractors</span>. Each task covers at least two types of randomization.
+    </p>
+
+    <div class="allegrofail">
+        <div class="video_container">
+            <img src="assets/img/main_exp_results.png" style="border-radius: 0">
             <div class="caption">
                 <p>
-                    <b>User study results with 10 participants.</b>
+                    <b>Evaluation results for five household tasks.</b> <b>Left:</b> Initial randomization.
+                    <b>Middle:</b> Success rates over 15 runs (“ET” = entire task, “ST” = sub-task). <b>Right:</b>
+                    Number of safety violations.
                 </p>
             </div>
         </div>
     </div>
 
     <p>
-        As shown in the figure above, JoyLo achieves the highest success rate and shortest completion time among all
-        interfaces. The average success rate for completing the entire task using JoyLo is 5× higher than VR
-        controllers, while no participants complete the entire task using Apple Vision Pro. The median completion time
-        using JoyLo is 23% shorter than with VR controllers.
-        JoyLo particularly excels in articulated object manipulation where precise manipulation is crucial.
-        Furthermore, JoyLo consistently provides the highest-quality data, as indicated by the fact that only data
-        collected
-        with JoyLo successfully replayed in open-loop to complete
-        non-trivial tasks. This is because JoyLo results in the lowest
-        singularity ratio, 78% lower than VR controllers and 85%
-        lower than Apple Vision Pro.
-    </p>
-
-    <div class="allegrofail">
-        <div class="video_container">
-            <img src="assets/img/user_study_survey_results.png">
-            <div class="caption">
-                <p>
-                    <b>User study participant demographics and survey results.</b>
-                </p>
-            </div>
-        </div>
-    </div>
-
-    <p>
-        All participants rate JoyLo as the most user-friendly interface. Interestingly, although 70% of participants
-        initially believed IK-based interfaces would be more intuitive,
-        after the study, they unanimously prefer JoyLo. This shift
-        highlights a key difference in data collection for tabletop
-        manipulation and for mobile whole-body manipulation—one
-        common participant complaint is the difficulty of effectively
-        controlling the mobile base and torso using IK-based methods.
-    </p>
-
-
-    <h1>WB-VIMA Consistently Outperforms Baseline Methods for Household Activities (<abbr
-            title="Does WB-VIMA outperform baseline methods? If so, why do baseline methods fail?"><dfn>Q3</dfn></abbr>)
-    </h1>
-
-    <p>
-        For baseline comparisons, we include <span style="font-weight: bold">DP3</span> and the RGB image-based
-        diffusion policy (<span style="font-weight: bold">“RGBDP”</span>). We also report human teleoperation success
-        rate as a reference and track safety violations, defined as robot collisions or motor power losses due to
-        excessive force. Each activity is evaluated 15 times per policy. During evaluation, if a sub-task (<span
-            style="font-weight: bold">“ST”</span>) fails, we reset the robot and environment to the initial state of the
-        subsequent sub-task and continue evaluation. Additionally, we report the success rate for the entire task
-        (<span style="font-weight: bold">“ET”</span>)—representing the policy’s capability to complete the activity
-        end-to-end.
-    </p>
-
-    <div class="allegrofail">
-        <div class="video_container">
-            <img src="assets/img/policy_eval_results.png">
-            <div class="caption">
-                <p>
-                    <b>Success rate for five representative household activities.</b> “ET” denotes the entire task and
-                    “ST” denotes sub-task.
-                </p>
-            </div>
-        </div>
-    </div>
-
-    <div class="allegrofail">
-        <div class="video_container">
-            <img src="assets/img/safety_violations_table.png">
-            <div class="caption">
-                <p>
-                    <b>Safety violations during evaluation.</b> WB-VIMA exhibits minimal collisions with environmental
-                    objects and rarely causes motor power loss due to excessive force.
-                </p>
-            </div>
-        </div>
-    </div>
-
-    <p>
-        As shown in the figure above, WB-VIMA consistently outperforms the baseline methods DP3 and RGB-DP across all
-        tasks. In terms of end-to-end task success rate, WB-VIMA achieves 13× higher success than DP3 and 21× higher
-        success than RGB-DP. The baseline methods can complete only certain sub-tasks and the relatively simpler “put
-        items onto shelves” task but fail on more complex tasks. For average sub-task performance, WB-VIMA performs 1.6×
-        better than DP3 and 3.4× better than RGB-DP.
+        As shown in the figure above, WB-VIMA consistently outperforms the baseline methods across all tasks. For
+        end-to-end task success, WB-VIMA achieves 13× and 21× higher success rates than DP3 and RGB-DP, respectively.
+        For average sub-task performance, it outperforms them by 1.6× and 3.4×. ACT fails to complete any full tasks and
+        rarely succeeds in sub-tasks.
     </p>
 
     <p>
-        The baseline methods fail due to their inability to predict accurate and coordinated whole-body actions. Both
-        DP3 and RGB-DP directly predict flattened 21-DoF actions, ignoring the hierarchical dependencies within the
-        action space. This is problematic because even well-trained policies exhibit modeling errors. If such errors
-        occur in the predicted mobile base or torso actions, they cannot be corrected by arms actions, as all components
-        are predicted simultaneously without interdependency. Whole-body control involves multiple articulated
-        components, meaning inaccurate whole-body actions amplify end-effector drift in the task space, push the robot
-        into out-of-distribution states, and eventually lead to manipulation failures. We show several baseline methods'
-        failure cases in the videos below.
+        These baselines struggle because they directly predict flattened 21-DoF actions, ignoring hierarchical
+        dependencies within the action space. As a result, modeling errors in mobile base or torso predictions cannot be
+        corrected by arm actions, leading to amplified end-effector drift, pushing the robot into out-of-distribution
+        states, and eventually resulting in task failures. Uncoordinated whole-body actions also increase safety
+        violations, such as DP3 colliding with tables, RGB-DP losing arm power from excessive force, and ACT hitting
+        doorframes during trash disposal. We show several baseline methods' failure cases in the videos below.
     </p>
 
     <div class="allegroupper">
@@ -920,50 +822,173 @@
     </div>
 
     <h1>Effects of WB-VIMA’s Components on Task Performance (<abbr
-            title="What components contribute to WB-VIMA’s effectiveness?"><dfn>Q4</dfn></abbr>)
+            title="How different components contribute to WB-VIMA's effectiveness?"><dfn>Q2</dfn></abbr>)
     </h1>
 
     <p>
-        We conduct ablation studies with two WB-VIMA variants: one without <span style="font-weight: bold">autoregressive whole-body action denoising</span>
-        and the other without <span style="font-weight: bold">multi-modal observation attention</span>.
+        We evaluate two WB-VIMA variants: one without <span style="font-weight: bold">autoregressive whole-body action decoding</span>
+        and one without <span style="font-weight: bold">multi-modal observation attention</span>.
     </p>
 
     <div class="allegrofail">
         <div class="video_container" style="text-align: center">
-            <img src="assets/img/ablation_results.png" style="width: 60%">
+            <img src="assets/img/ablation_results.png" style="width: 40%">
             <div class="caption">
                 <p>
-                    <b>Ablation study results for tasks “put items onto shelves” and “lay clothes out”.</b>
+                    <b>Real-world ablation results for “put items onto shelves” and “lay clothes out.”</b>
                 </p>
             </div>
         </div>
     </div>
 
     <p>
-        As shown in the figure above, removing either component significantly degrades overall performance. For the task
-        “put items onto shelves” and the first sub-task “open wardrobe” in “lay clothes out”, coordinated whole-body
-        actions are critical for success. Consequently, removing autoregressive whole-body action denoising results in a
-        drastic performance drop of up to 53%. Removing multi-modal observation attention reduces performance across all
-        tasks. In summary, the synergy between coherent, coordinated whole-body action predictions and the effective
-        extraction of task-conditioning features from multi-modal observations is essential for WB-VIMA’s strong
-        performance in complex, real-world household tasks.
+        As shown in the figure above, removing either significantly degrades performance. Tasks like “put items onto
+        shelves” and “open wardrobe” (ST-1) in “lay clothes out” critically depend on coordinated whole-body actions;
+        removing autoregressive action decoding leads to up to a 53% performance drop. Removing multi-modal attention
+        reduces performance across all tasks, causing the model to ignore visual inputs and overfit to proprioception.
+        Four collisions are also observed due to poor visual awareness.
     </p>
 
+    <p>
+        The same conclusions hold in a simulated table wiping task as shown below. Furthermore, starting
+        from a vanilla diffusion policy, we provide a roadmap improving the model success by progressively adding
+        components: multi-modal observation attention improves by 27% and surpasses ACT; adding autoregressive
+        whole-body action decoding further boosts success by 45%, culminating in WB-VIMA’s strong final performance.
+    </p>
 
-    <h1>Insights into the Capabilities of the Whole System (<abbr
-            title="What additional insights can be drawn about the system’s overall capabilities?"><dfn>Q5</dfn></abbr>)
+    <div class="allegrolower">
+        <div class="video_container" style="text-align: center">
+            <img src="assets/img/sim_ablation.png" style="width: 90%">
+            <div class="caption">
+                <p><b>Simulation ablation results for “wiping table.”</b> The robot must wipe toward the goal using
+                    whole-body motions while maintaining continuous hand contact. Results are averaged over
+                    <span style="font-weight: bold">five</span> runs with <span style="font-weight: bold">100</span>
+                    rollouts each; error bars indicate standard deviation.
+                </p>
+            </div>
+        </div>
+        <div class="video_container">
+            <video autoplay muted playsinline loop preload="auto" id="sim-ablation-video">
+                <source src="assets/videos/sim/ours.mp4" type="video/mp4">
+            </video>
+            <div class="caption">
+                <p>
+                <div class="select is-medium">
+                    <select id="sim-ablation-menu" onchange="updateSimVideo()"
+                            style="font-family: monospace">
+                        <option value="ours.mp4" selected="selected">Ours (Add W.B. Action Decoding)</option>
+                        <option value="no_wb_action_decoding.mp4">Add Multi-Modal Obs. Attn.</option>
+                        <option value="No_WB_Decoding_No_obs_attn.mp4">Add Transformer Backbone (Visuomotor Attention)
+                        </option>
+                        <option value="DP.mp4">Diffusion Policy</option>
+                        <option value="no_wb_action_decoding.mp4">Ablation: No W.B. Action Decoding</option>
+                        <option value="no_obs_attn.mp4">Ablation: No Multi-Modal Obs. Attn.</option>
+                        <option value="ACT.mp4">ACT</option>
+                    </select>
+                </div>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <h1>JoyLo is an efficient, user-friendly interface that provides high-quality data for policy learning (<abbr
+            title="How does JoyLo compare to other interfaces in efficiency and policy learning suitability?"><dfn>Q3</dfn></abbr>)
     </h1>
 
     <p>
-        While BRS demonstrates strong performance across diverse household tasks, what additional insights can inform
-        future advances? We highlight two key findings. First, the 4-DoF torso and mobile base greatly enhance the
-        maneuverability that stationary arms do not easily possess. As shown in the figure and videos below, this is
-        evident in tasks involving articulated object interactions where coordinated whole-body movements are necessary,
-        such as “opening the door” in “take trash outside”, and “opening the dishwasher” in “clean house after a wild
-        party”. To open an unmodified door, the robot learns to bend its torso forward while advancing the mobile base,
-        generating enough inertia to unlock the hinge and push the door open after grasping the handle. Similarly, when
-        opening a dishwasher, the robot moves its base backward, using its entire body to pull the dishwasher door open
-        smoothly.
+        We conducted a user study with 10 participants to evaluate JoyLo against two IK-based interfaces: <span
+            style="font-weight: bold">VR controllers</span> and <span style="font-weight: bold">Apple Vision Pro</span>.
+        The study was performed in the OmniGibson simulator on the “clean house after a wild party” task.
+    </p>
+
+    <div class="allegrolower">
+        <div class="video_container_triple">
+            <video autoplay muted playsinline loop preload="auto">
+                <source src="assets/videos/user_study_joylo.mov" type="video/mp4">
+            </video>
+            <div class="caption">
+                <p><b>User study.</b> From left to right: JoyLo, VR controllers, and Apple Vision Pro.</p>
+            </div>
+        </div>
+        <div class="video_container_triple">
+            <video autoplay muted playsinline loop preload="auto">
+                <source src="assets/videos/user_study_vr.mov" type="video/mp4">
+            </video>
+        </div>
+        <div class="video_container_triple">
+            <video autoplay muted playsinline loop preload="auto">
+                <source src="assets/videos/user_study_avp.mov" type="video/mp4">
+            </video>
+        </div>
+    </div>
+
+    <div class="allegrolower">
+        <div class="video_container">
+            <video autoplay muted playsinline loop preload="auto">
+                <source src="assets/videos/user_study_traj_example.mp4" type="video/mp4">
+            </video>
+            <div class="caption">
+                <p><b>An example user study trajectory.</b></p>
+            </div>
+        </div>
+    </div>
+
+    <p>
+        We measured <em>success rate</em> (↑, higher is better), <em>completion time</em> (↓, lower is better), <em>replay
+        success rate</em> (↑), and <em>singularity ratio</em> (↓) across entire tasks (<span
+            style="font-weight: bold">“ET”</span>) and sub-tasks (<span style="font-weight: bold">“ST”</span>).
+        Replay success measures the open-loop execution of collected robot trajectories, where higher values indicate
+        higher-quality, verified data that allows imitation learning policies to better model
+        trajectories.
+    </p>
+
+    <div class="allegrolower">
+        <div class="video_container" style="text-align: center">
+            <img src="assets/img/user_study_results.png" style="width: 90%">
+            <div class="caption">
+                <p>
+                    <b>User study results, participant demographics, and questionnaire results.</b> “S.R.” is success
+                    rate. “ET Comp. Time” and “ST Comp. Time” refer to
+                    entire and sub-task completion times.
+                </p>
+            </div>
+        </div>
+        <div class="video_container" style="text-align: center">
+            <img src="assets/img/user_study_survey_results.png" style="width: 90%">
+        </div>
+    </div>
+
+    <p>
+        As shown in the figure above, JoyLo achieves the highest success rate and fastest completion time across all
+        interfaces. It delivers a 5× higher task success rate and 23% shorter median completion time than VR
+        controllers, while no participants completed the entire task with Apple Vision Pro. JoyLo particularly
+        excels at articulated object manipulation (e.g., 67% higher success in “open dishwasher” (ST-2) than VR
+        controllers), enabling users to generate smooth and accurate actions, which is consistent with findings that
+        leader-follower arm control improves fine-grained manipulation. It also significantly reduces sub-task times
+        (e.g., 71% faster navigation and 67% faster bowl picking) compared to Apple Vision Pro, whose reliance on head
+        movement for mobile base control leads to poor coordination and tracking. Moreover, JoyLo provides the
+        highest data quality, achieving the lowest singularity ratio (78% and 85% lower than VR controllers and Apple
+        Vision Pro, respectively) and consistently replaying successful trajectories.</p>
+    <p>
+        In user surveys, all participants rated JoyLo the most user-friendly. Although 70% of participants initially
+        believed IK-based interfaces would be more intuitive, after the study they unanimously preferred JoyLo. This
+        shift underscores a key distinction between tabletop data collection and mobile whole-body manipulation: while
+        IK-based methods may suffice for static setups, they struggle to effectively control the mobile base and torso,
+        making high-quality data collection much harder in mobile manipulation settings.
+    </p>
+
+    <h1>Coordinated torso and mobile base movements enhance maneuverability beyond stationary arms (<abbr
+            title="What other insights can be drawn about the system's capabilities?"><dfn>Q4</dfn></abbr>)
+    </h1>
+
+    <p>
+        As shown in figures and videos below, coordinated whole-body movements are critical for tasks involving heavy
+        articulated object interactions, such as “open the door” (ST-3) in “take trash outside” and “open the
+        dishwasher” (ST-2) in “clean house after a wild party.”
+        To open a door, the robot bends its hip forward while advancing the base to generate enough inertia; to open a
+        dishwasher, it moves the base backward, using its whole body to pull the door open smoothly.
+        Without hip or base movement, both objects remain closed and the arm joint effort would surge, generating
+        excessive force that is potentially harmful to the hardware.
     </p>
 
     <div class="allegroupper">
@@ -971,19 +996,26 @@
             <source src="assets/videos/emergent_1.mp4" type="video/mp4">
         </video>
         <video autoplay muted playsinline loop preload="auto">
-            <source src="assets/videos/emergent_2.mp4" type="video/mp4">
+            <source src="assets/videos/open_door_without_torso.mp4" type="video/mp4">
         </video>
     </div>
-
-    <div class="allegrofail">
+    <div class="allegrolower">
         <div class="video_container">
-            <img src="assets/img/emergent.png">
+            <video autoplay muted playsinline loop preload="auto">
+                <source src="assets/videos/emergent_2.mp4" type="video/mp4">
+            </video>
             <div class="caption">
-                <p>
-                    <b>Emergent behaviors of learned WB-VIMA policies. </b> The trained policies leverage the torso and
-                    mobile base to improve maneuverability.
+                <p><b>Coordinated torso and mobile base movements enhance maneuverability.</b> <b>Left:</b> With hip or
+                    mobile base. <b>Right:</b> Without hip or mobile base. WB-VIMA policies use the hip and mobile base
+                    to open a door and dishwasher; if the torso or mobile base is locked, opening fails and arm joint
+                    effort surges, risking hardware damage.
                 </p>
             </div>
+        </div>
+        <div class="video_container">
+            <video autoplay muted playsinline loop preload="auto">
+                <source src="assets/videos/open_dishwasher_no_base.mp4" type="video/mp4">
+            </video>
         </div>
     </div>
 
@@ -1071,19 +1103,20 @@
 
     <h1>Conclusion</h1>
     <p>
-        We present BRS, a holistic framework for learning whole-body manipulation to tackle diverse real-world household
-        tasks. We identify three core whole-body control capabilities essential for performing household activities:
-        <span style="color: #92C4E9; font-weight: bold">bimanual</span> coordination, stable and precise <span
-            style="color: #F0C987; font-weight: bold">navigation</span>, and
-        extensive end-effector <span style="color: #EA9A9D; font-weight: bold">reachability</span>. Successfully
-        enabling robots to achieve these capabilities with learning-based approaches requires overcoming challenges in
-        both data collection and modeling algorithms. BRS addresses these challenges through two key innovations: 1)
-        JoyLo, a cost-effective whole-body teleoperation interface that enables efficient data collection for
-        learning-based methods; 2) WB-VIMA, a novel algorithm that leverages the robot’s embodiment hierarchy and
-        explicitly models the interdependencies within whole-body actions. The overall BRS system demonstrates strong
-        performance across a range of real-world household tasks, interacting with unmodified objects in natural,
-        unstructured environments. We believe BRS represents a significant step toward enabling robots to perform
-        everyday household tasks with greater autonomy and reliability.
+        This paper presents BRS, a holistic framework for learning whole-body manipulation to tackle diverse
+        real-world household tasks.
+        We identify three core capabilities essential for household activities: <span
+            style="color: #92C4E9; font-weight: bold">bimanual</span> coordination, stable
+        <span
+                style="color: #F0C987; font-weight: bold">navigation</span>, and extensive end-effector <span
+            style="color: #EA9A9D; font-weight: bold">reachability</span>.
+        Achieving these with learning-based methods requires overcoming challenges in both data and modeling.
+        BRS addresses them through two innovations: 1) JoyLo, a cost-effective whole-body interface for
+        efficient data collection, and 2) WB-VIMA, a novel algorithm that leverages embodiment hierarchy and models
+        interdependent whole-body actions.
+        The BRS system demonstrates strong performance across real-world household tasks with unmodified objects in
+        natural, unstructured environments, marking a step toward greater autonomy and reliability in household
+        robotics.
     </p>
 
     <h1>Acknowledgement</h1>
